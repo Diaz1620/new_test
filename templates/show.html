@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>Show</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header d-flex justify-content-around">
+            <h4><a href="/success">Dashboard</a> | <a href="/add_new_magazine">Add Magazine</a> | <a href="/user_account/{{session['userid']}}">Account</a> | <a href="/logout"><button class="btn btn-outline-info">Logout</button></a>
+            </h4>
+        </div>
+        <h1>{{ magazine[0]['title'] }}</h1>
+        <div class="content">
+            <h3>Added by {{magazine[0]['first_name']}} {{magazine[0]['last_name']}}</h3>
+            Description: <p>{{ magazine[0]['description'] }}</p>
+            <hr>
+            <h3>Subscribers</h3>
+            {% for sub in subscribers %}
+            <li>{{sub['first_name']}} {{sub['last_name']}}</li>
+            {% endfor %}
+    </div>
+</body>
+</html>
